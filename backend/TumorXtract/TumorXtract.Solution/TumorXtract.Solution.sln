@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TumorXtract.APIs", "TumorXtract.APIs\TumorXtract.APIs.csproj", "{4DD9F0DB-F3FF-4DA4-BE44-A775B4945468}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TumorXtract.Core", "TumorXtract.Core\TumorXtract.Core.csproj", "{D4F9AFAE-7FCE-4F6C-A426-4DB1C96DB2B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TumorXtract.Repository", "TumorXtract.Repository\TumorXtract.Repository.csproj", "{84EDE970-529B-472E-B159-96EF6ED605AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TumorXtract.Service", "TumorXtract.Services\TumorXtract.Service.csproj", "{4B4CA7A8-5839-4884-88AD-8CD3287768AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DD9F0DB-F3FF-4DA4-BE44-A775B4945468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD9F0DB-F3FF-4DA4-BE44-A775B4945468}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD9F0DB-F3FF-4DA4-BE44-A775B4945468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD9F0DB-F3FF-4DA4-BE44-A775B4945468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4F9AFAE-7FCE-4F6C-A426-4DB1C96DB2B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F9AFAE-7FCE-4F6C-A426-4DB1C96DB2B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4F9AFAE-7FCE-4F6C-A426-4DB1C96DB2B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4F9AFAE-7FCE-4F6C-A426-4DB1C96DB2B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84EDE970-529B-472E-B159-96EF6ED605AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84EDE970-529B-472E-B159-96EF6ED605AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84EDE970-529B-472E-B159-96EF6ED605AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84EDE970-529B-472E-B159-96EF6ED605AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B4CA7A8-5839-4884-88AD-8CD3287768AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B4CA7A8-5839-4884-88AD-8CD3287768AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B4CA7A8-5839-4884-88AD-8CD3287768AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B4CA7A8-5839-4884-88AD-8CD3287768AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {60AED19D-B669-4B7B-B7E7-746FAAF35D0E}
+	EndGlobalSection
+EndGlobal

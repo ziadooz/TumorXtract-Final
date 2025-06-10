@@ -1,0 +1,43 @@
+/* Import dashboard-specific styles */
+@import url('./reset.css');
+@import url('./variables.css');
+@import url('./dashboard/_header.css');
+@import url('./footer.css');
+@import url('./responsive.css');
+
+/* Common styles shared across all dashboard pages */
+
+/* Container styles */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    /* Removed display: flex and flex-direction: column to avoid conflicts with page-specific layouts */
+}
+
+/* Section container styles */
+.section-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    width: 100%;
+}
+
+.section {
+    padding: var(--space-xxl) 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-container {
+        padding: 0 var(--space-md);
+    }
+
+    .section {
+        padding: var(--space-xl) 0;
+    }
+}

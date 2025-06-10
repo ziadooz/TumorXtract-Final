@@ -1,0 +1,44 @@
+/* Patient Dashboard Specific Variables */
+:root {
+    /* Colors */
+    --table-border-color: rgba(0, 0, 0, 0.1);
+    --table-hover-color: rgba(46, 204, 113, 0.05);
+    --table-header-bg: rgba(0, 0, 0, 0.02);
+    
+    /* Base Spacing */
+    --table-cell-padding: var(--space-md);
+    --header-height: 72px;
+    
+    /* Modal Spacing */
+    --modal-padding: var(--space-md);
+    --modal-header-padding: var(--space-sm) var(--space-md);
+    --modal-body-padding: var(--space-lg);
+    --modal-footer-padding: var(--space-sm) var(--space-md);
+    
+    /* Modal Dimensions */
+    --modal-width: 90%;
+    --modal-max-width: 1200px;
+    --modal-header-height: 70px;
+    --modal-footer-height: 80px;
+    --modal-body-spacing: var(--space-md);
+    --modal-border-radius: var(--radius-lg);
+    --modal-backdrop-blur: 4px;
+    
+    /* Component Sizes */
+    --avatar-size: 40px;
+    --modal-avatar-size: 70px;
+    --action-btn-size: 32px;
+    --action-btn-size-mobile: 28px;
+    
+    /* Layout */
+    --container-width: 1200px;
+    --sidebar-width: 260px;
+    
+    /* Typography */
+    --modal-title-size: var(--font-large);
+    --modal-body-text: var(--font-medium);
+    --modal-label-size: var(--font-small);
+    
+    /* Transitions */
+    --table-transition: all var(--transition-normal);
+}

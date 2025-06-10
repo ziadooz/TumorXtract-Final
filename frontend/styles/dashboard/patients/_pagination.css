@@ -1,0 +1,89 @@
+/* Pagination Styles for TumorXtract Patients Page */
+
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md, 16px) 0; /* Using fallback if --space-md is not defined */
+    margin-top: var(--space-lg, 24px); /* Using fallback if --space-lg is not defined */
+    border-top: 1px solid var(--border-color, #e0e0e0); /* Using fallback */
+}
+
+/* The .pagination div is where the ul.pagination-list is injected by JS */
+/* .pagination {} */ /* Removed empty ruleset */
+
+ul.pagination-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li.pagination-item {
+    margin: 0 var(--space-xs, 4px); /* Using fallback */
+}
+
+li.pagination-item a {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm, 8px) var(--space-md, 12px);
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: var(--radius-sm, 4px); /* Using fallback */
+    text-decoration: none;
+    color: var(--text-secondary, #555); /* Using fallback */
+    background-color: #fff;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    font-size: var(--font-small, 0.875rem); /* Using fallback */
+    min-width: 36px; 
+    height: 36px; 
+    box-sizing: border-box;
+    line-height: 1; /* Ensure text/icons are centered vertically */
+}
+
+li.pagination-item a:hover {
+    background-color: var(--background-hover, #f0f0f0); /* Using fallback */
+    border-color: var(--border-hover-color, #cccccc); /* Using fallback */
+    color: var(--text-primary, #333); /* Using fallback */
+}
+
+li.pagination-item.active a {
+    background-color: var(--primary-color, #007bff); /* Using fallback */
+    color: #fff;
+    border-color: var(--primary-color, #007bff); /* Using fallback */
+    font-weight: 600; /* Slightly bolder for active state */
+    cursor: default;
+}
+
+/* Removed empty ruleset for li.pagination-item.prev a, li.pagination-item.next a */
+
+li.pagination-item.prev a i,
+li.pagination-item.next a i {
+    font-size: var(--font-xs, 0.75rem); /* Using fallback, adjust as needed for icon size */
+}
+
+/* Style for disabled prev/next buttons (if JS adds a 'disabled' class) */
+li.pagination-item.disabled a {
+    color: var(--text-disabled, #aaa); /* Using fallback */
+    background-color: var(--background-disabled, #f9f9f9); /* Using fallback */
+    border-color: var(--border-color, #e0e0e0);
+    cursor: not-allowed;
+}
+
+li.pagination-item.disabled a:hover {
+    background-color: var(--background-disabled, #f9f9f9);
+    border-color: var(--border-color, #e0e0e0);
+    color: var(--text-disabled, #aaa);
+}
+
+
+.page-info {
+    font-size: var(--font-small, 0.875rem); /* Using fallback */
+    color: var(--text-secondary, #555); /* Using fallback */
+}
+
+.page-info span {
+    font-weight: 600; /* Bolder for numbers */
+    color: var(--text-primary, #333); /* Using fallback */
+}

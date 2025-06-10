@@ -1,0 +1,236 @@
+/**
+ * What Is & AI Overview Sections
+ * Contains styles for the What Is Brain Tumor and AI Technology Overview sections
+ */
+
+/* What is Section */
+.what-is .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+    padding: var(--space-lg) 0;
+    margin: 0 auto;
+    max-width: var(--container-width);
+}
+
+.what-is p {
+    font-size: var(--font-large);
+    line-height: 1.8;
+    color: var(--text-color);
+    max-width: 900px;
+    margin: 0 auto var(--space-xl);
+}
+
+/* Statistics Cards */
+.stats div {
+    text-align: center;
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    background: #fff;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.stats div:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: var(--shadow-lg);
+}
+
+.stats h3 {
+    font-size: var(--font-xlarge);
+    color: var(--primary-color);
+    margin-bottom: var(--space-sm);
+}
+
+.stats p {
+    font-size: var(--font-medium);
+    margin: 0;
+}
+
+/* AI Overview Section */
+.ai-overview {
+    position: relative;
+}
+
+.ai-overview p {
+    font-size: var(--font-large);
+    color: var(--text-color);
+    max-width: 900px;
+    margin: 0 auto var(--space-xl);
+    line-height: 1.8;
+    padding: 0 var(--space-lg);
+}
+
+/* Accuracy Display */
+.accuracy {
+    background: #fff;
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-xl);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-md);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.accuracy:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--shadow-lg);
+}
+
+.accuracy p {
+    font-size: var(--font-large);
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+.accuracy div {
+    font-size: var(--font-xxlarge);
+    color: var(--primary-color);
+    font-weight: 800;
+    padding: var(--space-sm) var(--space-md);
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: var(--radius-md);
+    box-shadow: inset var(--shadow-sm);
+}
+
+/* Technology Features Grid */
+.tech-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    padding: 0 var(--space-md);
+    margin-top: var(--space-xl);
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature {
+    background: #fff;
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feature:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature h3 {
+    font-size: var(--font-large);
+    color: var(--primary-color);
+    margin-bottom: var(--space-sm);
+    font-weight: 700;
+}
+
+.feature p {
+    font-size: var(--font-medium);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 1400px) {
+    .tech-features {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-md);
+    }
+
+    .stats {
+        gap: var(--space-sm);
+    }
+}
+
+@media (max-width: 1200px) {
+    .what-is p,
+    .ai-overview p {
+        font-size: calc(var(--font-large) * 0.9);
+        max-width: 800px;
+    }
+
+    .stats h3 {
+        font-size: calc(var(--font-xlarge) * 0.9);
+    }
+
+    .accuracy div {
+        font-size: calc(var(--font-xxlarge) * 0.9);
+    }
+}
+
+@media (max-width: 768px) {
+    .what-is .stats {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .what-is p,
+    .ai-overview p {
+        font-size: var(--font-medium);
+        padding: 0 var(--space-sm);
+        max-width: 600px;
+    }
+
+    .tech-features {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        gap: var(--space-md);
+    }
+
+    .accuracy {
+        flex-direction: column;
+        gap: var(--space-sm);
+        padding: var(--space-md);
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .feature {
+        padding: var(--space-lg);
+    }
+
+    .accuracy p {
+        font-size: var(--font-medium);
+    }
+
+    .accuracy div {
+        font-size: var(--font-xlarge);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats div {
+        padding: var(--space-md);
+    }
+
+    .stats h3 {
+        font-size: var(--font-large);
+    }
+
+    .stats p {
+        font-size: var(--font-small);
+    }
+
+    .feature {
+        padding: var(--space-md);
+    }
+
+    .feature h3 {
+        font-size: calc(var(--font-large) * 0.9);
+    }
+
+    .feature p {
+        font-size: var(--font-small);
+    }
+}

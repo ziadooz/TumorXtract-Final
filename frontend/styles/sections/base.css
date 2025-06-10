@@ -1,0 +1,109 @@
+/**
+ * Base Section Styles
+ * Contains common styles and layouts used across all sections
+ */
+
+/* Common Section Styles */
+.section {
+    text-align: center;
+    padding: var(--space-xxl) 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Background styles for regular sections only */
+.section:not(.hero):not(.ready-to-detect):not(.our-gallery):not(.how-it-works):nth-child(odd) {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+}
+
+.section:not(.hero):not(.ready-to-detect):not(.our-gallery):not(.how-it-works):nth-child(even) {
+    background: linear-gradient(145deg, #f8f9fa, #f2f4f5);
+}
+
+.section:not(.hero):not(.ready-to-detect):not(.our-gallery):not(.how-it-works)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(46, 204, 113, 0.05), transparent 70%),
+                radial-gradient(circle at bottom left, rgba(52, 152, 219, 0.05), transparent 70%);
+    pointer-events: none;
+}
+
+.section-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    position: relative;
+    z-index: 1;
+}
+
+/* Text styles for regular sections only */
+.section:not(.hero):not(.ready-to-detect):not(.our-gallery):not(.how-it-works) h2 {
+    font-size: var(--font-xxlarge);
+    margin-bottom: var(--space-lg);
+    color: var(--text-color);
+    font-weight: 800;
+    position: relative;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1400px) {
+    .section-container {
+        max-width: 1200px;
+        padding: 0 var(--space-xl);
+    }
+
+    .section h2 {
+        font-size: calc(var(--font-xxlarge) * 0.9);
+    }
+}
+
+@media (max-width: 1200px) {
+    .section-container {
+        max-width: 1000px;
+        padding: 0 var(--space-lg);
+    }
+
+    .section {
+        padding: var(--space-xl) 0;
+    }
+
+    .section h2 {
+        font-size: calc(var(--font-xxlarge) * 0.85);
+        margin-bottom: var(--space-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: var(--space-lg) 0;
+    }
+
+    .section-container {
+        padding: 0 var(--space-md);
+    }
+
+    .section h2 {
+        font-size: calc(var(--font-xlarge) * 1.2);
+        margin-bottom: var(--space-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: var(--space-md) 0;
+    }
+
+    .section-container {
+        padding: 0 var(--space-sm);
+    }
+
+    .section h2 {
+        font-size: var(--font-xlarge);
+        margin-bottom: var(--space-sm);
+    }
+}

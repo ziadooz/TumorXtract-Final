@@ -1,0 +1,165 @@
+/* How it Works Section */
+.how-it-works {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    padding: var(--space-lg) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.how-it-works::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(46, 204, 113, 0.05), transparent 70%),
+                radial-gradient(circle at bottom left, rgba(52, 152, 219, 0.05), transparent 70%);
+    pointer-events: none;
+}
+
+.how-it-works .section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    position: relative;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    margin-bottom: var(--space-md);
+    color: var(--text-color);
+    font-weight: 800;
+    font-size: calc(var(--font-xxlarge) * 0.9);
+}
+
+/* Steps Grid */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+/* Step Cards */
+.steps > div {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 200px;
+}
+
+.steps > div:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Step Icons */
+.steps img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--space-sm);
+    transition: transform var(--transition-normal);
+    object-fit: contain;
+}
+
+.steps > div:hover img {
+    transform: scale(1.1);
+}
+
+/* Step Content */
+.steps h3 {
+    font-size: calc(var(--font-large) * 0.9);
+    margin-bottom: var(--space-xs);
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.steps p {
+    font-size: var(--font-medium);
+    color: var(--text-color);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .how-it-works .section-container {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 992px) {
+    .steps {
+        grid-template-columns: repeat(3, minmax(220px, 1fr));
+        gap: var(--space-sm);
+        overflow-x: auto;
+        padding-bottom: var(--space-sm);
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .steps > div {
+        scroll-snap-align: center;
+        min-height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .how-it-works {
+        padding: var(--space-md) 0;
+    }
+
+    .how-it-works .section-container {
+        padding: 0 var(--space-sm);
+    }
+
+    .steps {
+        padding: 0 var(--space-sm) var(--space-sm);
+    }
+
+    .steps > div {
+        min-height: 160px;
+        padding: var(--space-sm);
+    }
+
+    .steps img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: var(--space-xs);
+    }
+
+    .steps h3 {
+        font-size: var(--font-medium);
+    }
+
+    .steps p {
+        font-size: var(--font-small);
+    }
+}
+
+/* Hide scrollbar but keep functionality */
+@media (max-width: 992px) {
+    .steps {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .steps::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* High-DPI Screen Adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .steps img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}

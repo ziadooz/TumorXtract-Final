@@ -1,0 +1,148 @@
+/* Large Screens */
+@media (max-width: 1200px) {
+    .profile-content {
+        margin: 0 var(--space-md);
+    }
+}
+
+/* Medium Screens */
+@media (max-width: 992px) {
+    .profile-content {
+        padding: var(--space-lg);
+    }
+
+    .profile-content h1 {
+        font-size: calc(var(--font-xxlarge) * 0.9);
+    }
+
+    .form-section h2 {
+        font-size: calc(var(--font-large) * 0.9);
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: calc(var(--header-height) + var(--space-md)) var(--space-md) var(--space-md);
+    }
+
+    .profile-content {
+        padding: var(--space-md);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .profile-content h1 {
+        font-size: calc(var(--font-xxlarge) * 0.8);
+        text-align: center;
+    }
+
+    .subtitle {
+        text-align: center;
+    }
+
+    .form-section h2 {
+        text-align: center;
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 576px) {
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: var(--space-sm);
+    }
+
+    .cancel-button,
+    .save-button {
+        width: 100%;
+    }
+
+    .image-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .upload-label i {
+        font-size: var(--font-medium);
+    }
+
+    .upload-label span {
+        font-size: var(--font-xs);
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 360px) {
+    .profile-container {
+        padding: calc(var(--header-height) + var(--space-sm)) var(--space-sm) var(--space-sm);
+    }
+
+    .profile-content {
+        padding: var(--space-sm);
+    }
+
+    .profile-content h1 {
+        font-size: calc(var(--font-xlarge) * 0.9);
+    }
+
+    .form-section h2 {
+        font-size: var(--font-medium);
+    }
+}
+
+/* High Resolution Displays */
+@media (min-width: 1920px) {
+    .profile-content {
+        max-width: 1000px;
+    }
+
+    .image-container {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .profile-container {
+        padding: 0;
+        background: none;
+    }
+
+    .profile-content {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .profile-image-section,
+    .form-actions {
+        display: none;
+    }
+
+    .form-grid {
+        gap: var(--space-sm);
+    }
+
+    .input-group input {
+        border: 1px solid #000;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .input-group input,
+    .input-group i,
+    .image-overlay,
+    .cancel-button,
+    .save-button {
+        transition: none;
+    }
+
+    .error-message {
+        animation: none;
+    }
+}

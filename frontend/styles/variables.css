@@ -1,0 +1,67 @@
+:root {
+    /* Colors */
+    --primary-color: #2ecc71;
+    --secondary-color: #3498db;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --nav-bg-color: #2d3436;
+    --nav-bg-color-rgb: 45, 52, 54;  /* Added RGB values for nav background */
+    --nav-text-color: #fff;
+    
+    /* Shadows */
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 2rem;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+    --space-xxl: 8rem;
+    
+    /* Typography */
+    --font-xs: 0.75rem;
+    --font-small: 0.875rem;
+    --font-normal: 1rem;
+    --font-medium: 1.25rem;
+    --font-large: 1.5rem;
+    --font-xlarge: 2rem;
+    --font-xxlarge: 3rem;
+    
+    /* Container */
+    --container-width: 1200px;
+    
+    /* Modal Dimensions */
+    --modal-width: 90%;
+    --modal-max-width: 1200px;
+    --modal-max-height: 95vh;
+    --modal-border-radius: var(--radius-lg);
+    --modal-padding: var(--space-md);
+    --modal-header-height: 70px;
+    --modal-header-padding: var(--space-md);
+    --modal-footer-height: 80px;
+    --modal-backdrop-blur: 4px;
+    --modal-title-size: var(--font-large);
+    --modal-title-weight: 600;
+    --modal-avatar-size: 80px;
+    --modal-content-spacing: var(--space-md);
+    
+    /* Layout */
+    --header-height: 80px;
+    --footer-height: 350px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}

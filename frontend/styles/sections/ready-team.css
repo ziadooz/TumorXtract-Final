@@ -1,0 +1,401 @@
+/**
+ * Ready to Detect & Team Members Sections
+ * Contains styles for call-to-action and team showcase sections
+ */
+
+/* Ready to Detect Section */
+.ready-to-detect {
+    background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    text-align: center;
+    position: relative;
+    padding: var(--space-xxl) 0;
+    overflow: hidden;
+}
+
+/* Background Overlay */
+.ready-to-detect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.1), transparent 50%);
+    pointer-events: none;
+}
+
+/* Content Container */
+.ready-to-detect .section-container {
+    position: relative;
+    z-index: 2;
+    max-width: min(var(--container-width), 1200px);
+    margin: 0 auto;
+}
+
+/* Section Heading */
+.ready-to-detect h2 {
+    font-size: calc(var(--font-xxlarge) * 1.2);
+    color: #fff;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: var(--space-lg);
+    letter-spacing: 0.5px;
+    position: relative;
+    font-weight: 800;
+}
+
+.ready-to-detect h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #fff;
+    margin: var(--space-sm) auto 0;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Description */
+.ready-to-detect p {
+    font-size: var(--font-xlarge);
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: var(--space-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
+}
+
+/* Call-to-Action Button */
+.ready-to-detect button {
+    background-color: #fff;
+    color: var(--primary-color);
+    border: none;
+    padding: var(--space-md) var(--space-xxl);
+    border-radius: var(--radius-md);
+    font-size: var(--font-large);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-lg);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    min-width: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ready-to-detect button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.ready-to-detect button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background-color: var(--text-color);
+    color: #fff;
+}
+
+.ready-to-detect button:hover::before {
+    left: 100%;
+}
+
+.ready-to-detect button:active {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Team Members Section */
+.team-members {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-xxl) 0;
+}
+
+/* Team Container */
+.team-container {
+    position: relative;
+    width: 100%;
+    max-width: calc(var(--container-width) - 100px);
+    margin: 0 auto;
+    padding: var(--space-md) 0;
+}
+
+/* Horizontal Scroll Container */
+.team {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-md) var(--space-sm);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+    margin: 0 var(--space-xl);
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 5%,
+        #000 95%,
+        transparent
+    );
+}
+
+.team::-webkit-scrollbar {
+    display: none;
+}
+
+/* Scroll Navigation Buttons */
+.team-scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    opacity: 0.8;
+}
+
+.team-scroll-btn:hover {
+    background: #27ae60;
+    transform: translateY(-50%) scale(1.1);
+    opacity: 1;
+}
+
+.team-scroll-btn.prev {
+    left: 0;
+}
+
+.team-scroll-btn.next {
+    right: 0;
+}
+
+.team-scroll-btn i {
+    font-size: var(--font-medium);
+}
+
+/* Team Member Cards */
+.team-member {
+    min-width: 280px;
+    max-width: 300px;
+    flex: 0 0 auto;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin: var(--space-xs);
+}
+
+.team-member:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Team Member Images */
+.team-member img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto var(--space-md);
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.team-member:hover img {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Team Member Info */
+.team-member h3 {
+    font-size: var(--font-large);
+    color: var(--text-color);
+    margin-bottom: var(--space-xs);
+    font-weight: 700;
+}
+
+.team-member p {
+    color: var(--secondary-color);
+    font-size: var(--font-medium);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1400px) {
+    .ready-to-detect .section-container {
+        max-width: 1000px;
+    }
+
+    .team-container {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .ready-to-detect h2 {
+        font-size: var(--font-xxlarge);
+    }
+
+    .ready-to-detect p {
+        font-size: calc(var(--font-xlarge) * 0.9);
+        max-width: 700px;
+    }
+
+    .team-container {
+        max-width: 900px;
+    }
+
+    .team-member {
+        min-width: 260px;
+    }
+
+    .team-member img {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ready-to-detect {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .ready-to-detect h2 {
+        font-size: var(--font-xlarge);
+    }
+
+    .ready-to-detect h2::after {
+        width: 60px;
+        margin-top: var(--space-xs);
+    }
+
+    .ready-to-detect p {
+        font-size: var(--font-large);
+        padding: 0 var(--space-sm);
+        max-width: 600px;
+        margin-bottom: var(--space-lg);
+    }
+
+    .ready-to-detect button {
+        min-width: 200px;
+        padding: var(--space-sm) var(--space-lg);
+        font-size: var(--font-medium);
+    }
+
+    .team-container {
+        max-width: 100%;
+        margin: 0;
+        padding: var(--space-sm) 0;
+    }
+
+    .team {
+        gap: var(--space-md);
+        margin: 0 var(--space-lg);
+        mask-image: none;
+    }
+
+    .team-member {
+        min-width: 220px;
+        padding: var(--space-md);
+    }
+
+    .team-member img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .team-scroll-btn {
+        width: 35px;
+        height: 35px;
+        opacity: 0.9;
+    }
+}
+
+@media (max-width: 480px) {
+    .ready-to-detect {
+        padding: var(--space-lg) var(--space-sm);
+    }
+
+    .ready-to-detect h2 {
+        font-size: calc(var(--font-xlarge) * 0.9);
+    }
+
+    .ready-to-detect p {
+        font-size: var(--font-medium);
+        padding: 0;
+    }
+
+    .ready-to-detect button {
+        min-width: 180px;
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .team {
+        gap: var(--space-sm);
+        margin: 0 var(--space-md);
+    }
+
+    .team-member {
+        min-width: 200px;
+        padding: var(--space-sm);
+    }
+
+    .team-member img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .team-member h3 {
+        font-size: calc(var(--font-large) * 0.9);
+    }
+
+    .team-member p {
+        font-size: var(--font-small);
+    }
+
+    .team-scroll-btn {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* High-DPI Screen Adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .team-member img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}

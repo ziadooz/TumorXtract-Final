@@ -1,0 +1,31 @@
+2025-03-10 22:39:47.832841: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-03-10 22:39:48.856262: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-03-10 22:39:51,974 - INFO - TensorFlow version: 2.16.2
+2025-03-10 22:39:51,975 - INFO - Detection model path: C:\Users\ziadz\Documents\Cline\mri-scanner\backend\model\EfficientNet_model_Brain_Detection.h5
+2025-03-10 22:39:51,975 - INFO - Segmentation model path: C:\Users\ziadz\Documents\Cline\mri-scanner\backend\model\Model_Segmentation.h5
+2025-03-10 22:39:51,975 - INFO - Model files exist: Detection=True, Segmentation=True
+2025-03-10 22:39:51,975 - INFO - Creating test image...
+2025-03-10 22:39:51,975 - INFO - Initializing processor...
+2025-03-10 22:39:52.029310: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-10 22:39:54,871 - INFO - Running prediction...
+2025-03-10 22:39:54,871 - ERROR - Test failed with exception:
+2025-03-10 22:39:54,872 - ERROR - Traceback (most recent call last):
+  File "C:\Users\ziadz\Documents\Cline\mri-scanner\backend\model_utils.py", line 141, in predict
+    original_img = np.array(Image.open(io.BytesIO(image_file)))
+                                       ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: a bytes-like object is required, not 'Image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ziadz\Documents\Cline\mri-scanner\backend\test_model.py", line 42, in test_models
+    result = processor.process_image(test_img)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ziadz\Documents\Cline\mri-scanner\backend\model_utils.py", line 193, in process_image
+    detection_result, original_img = self.detector.predict(image_file)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ziadz\Documents\Cline\mri-scanner\backend\model_utils.py", line 174, in predict
+    raise Exception(f"Error during prediction: {str(e)}")
+Exception: Error during prediction: a bytes-like object is required, not 'Image'
+

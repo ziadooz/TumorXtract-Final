@@ -1,0 +1,133 @@
+/* Team Section */
+.team-members {
+    background: var(--bg-light);
+    padding: var(--space-xxl) 0;
+}
+
+.team-members h2 {
+    text-align: center;
+    font-size: var(--font-xxlarge);
+    margin-bottom: var(--space-xl);
+    color: var(--text-color);
+}
+
+/* Team Container with Scroll */
+.team-container {
+    position: relative;
+    padding: 0 40px;
+    margin: 0 -40px;
+}
+
+.team {
+    display: flex;
+    gap: var(--space-lg);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    padding: var(--space-md) 40px;
+    scroll-snap-type: x mandatory;
+}
+
+/* Hide scrollbar */
+.team::-webkit-scrollbar {
+    display: none;
+}
+
+/* Team Member Cards */
+.team-member {
+    flex: 0 0 300px;
+    text-align: center;
+    background: #fff;
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    scroll-snap-align: center;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.team-member img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: var(--space-md);
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+}
+
+.team-member h3 {
+    font-size: var(--font-large);
+    color: var(--text-color);
+    margin-bottom: var(--space-xs);
+}
+
+.team-member p {
+    color: var(--secondary-color);
+    font-size: var(--font-medium);
+}
+
+/* Navigation Buttons */
+.team-scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--nav-text-color);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    z-index: 2;
+}
+
+.team-scroll-btn:hover {
+    background: #27ae60;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.team-scroll-btn.prev {
+    left: 0;
+}
+
+.team-scroll-btn.next {
+    right: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-container {
+        padding: 0 30px;
+        margin: 0 -30px;
+    }
+
+    .team {
+        padding: var(--space-md) 30px;
+        gap: var(--space-md);
+    }
+
+    .team-member {
+        flex: 0 0 260px;
+        padding: var(--space-md);
+    }
+
+    .team-member img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .team-scroll-btn {
+        width: 35px;
+        height: 35px;
+    }
+}

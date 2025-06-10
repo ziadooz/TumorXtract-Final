@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Management - TumorXtract</title>
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <!-- Profile Page Styles -->
+    <link rel="stylesheet" href="styles/dashboard/profile/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="background-color: #ecf0f1;">
+    <div class="app-container" style="background-color: #ecf0f1;">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="left-section">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo/logo-White.png" alt="TumorXtract Logo">
+                        </a>
+                    </div>
+                    <button class="nav-toggle" aria-label="Toggle Navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <nav class="dashboard-nav">
+                        <a href="index.html" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            Home
+                        </a>
+                        <a href="assistants.html" class="nav-item">
+                            <i class="fas fa-user-nurse"></i>
+                            Assistants
+                        </a>
+                        <a href="add-patient.html" class="nav-item">
+                            <i class="fas fa-user-plus"></i>
+                            Add Patient
+                        </a>
+                        <a href="patients.html" class="nav-item">
+                            <i class="fas fa-users"></i>
+                            Patients
+                        </a>
+                        <a href="detect.html" class="nav-item">
+                            <i class="fas fa-brain"></i>
+                            Detect
+                        </a>
+                    </nav>
+                </div>
+                <div class="right-section">
+                    <div class="user-menu">
+                        <img src="assets/images/default-profile.png" alt="User Profile" class="profile-img">
+                        <div class="user-info">
+                            <span class="user-name">Dr. John Doe</span>
+                            <span class="user-role">Neurologist</span>
+                        </div>
+                        <button class="menu-toggle" aria-label="Toggle User Menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown">
+                            <a href="profile.html" class="dropdown-item active" aria-current="page">
+                                <i class="fas fa-user-gear"></i>
+                                Profile Management
+                            </a>
+                            <a href="#" class="dropdown-item sign-out">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content" style="background-color: #ecf0f1;">
+            <div class="profile-container" style="background-color: #ecf0f1;">
+                <div class="profile-content">
+                    <h1>Profile Management</h1>
+                    <p class="subtitle">Update your profile information</p>
+
+                    <form id="profileForm" class="profile-form">
+                        <!-- Profile Image Section -->
+                        <div class="profile-image-section">
+                            <div class="image-container">
+                                <img src="assets/images/default-profile.png" alt="Profile picture" id="profilePreview">
+                                <div class="image-overlay">
+                                    <label for="profileImage" class="upload-label">
+                                        <i class="fas fa-camera"></i>
+                                        <span>Change Photo</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <input type="file" id="profileImage" name="profileImage" accept="image/*" class="hidden">
+                            <!-- Hidden input for imageUrl -->
+                            <input type="hidden" id="imageUrl" name="imageUrl">
+                        </div>
+
+                        <!-- Personal Information Section -->
+                        <div class="form-section">
+                            <h2>Personal Information</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="displayName">Full Name</label>
+                                    <div class="input-group">
+                                        <input type="text" id="displayName" name="displayName" required>
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="specialization">Specialization</label>
+                                    <div class="input-group">
+                                        <select id="specialization" name="specialization" required>
+                                            <option value="" disabled selected>Select your specialization</option>
+                                            <option value="oncologist">Oncologist</option>
+                                            <option value="radiologist">Radiologist</option>
+                                            <option value="pathologist">Pathologist</option>
+                                        </select>
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <div class="input-group">
+                                        <input type="email" id="email" name="email" required disabled>
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phoneNumber">Phone Number</label>
+                                    <div class="input-group">
+                                        <input type="tel" id="phoneNumber" name="phoneNumber" required 
+                                               pattern="^01[0125][0-9]{8}$">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="cancel-button">Cancel</button>
+                            <button type="submit" class="save-button">
+                                <span class="button-text">Save Changes</span>
+                                <div class="button-loader"></div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo/logo-White.png" alt="TumorXtract Logo">
+                    </div>
+                    <p>Advanced AI-powered brain tumor detection</p>
+                    <p class="copyright">© 2025 By EELU Graduation Project</p>
+                </div>
+                <div class="footer-center">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html#about">About Us</a>
+                        <a href="#">Services</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="scripts/shared/api-config.js"></script>
+    <script src="scripts/shared/auth-utils.js"></script>
+    <script src="scripts/shared/dashboard-header.js"></script>
+    <script src="scripts/dashboard/profile.js"></script>
+</body>
+</html>

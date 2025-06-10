@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TumorXtract - Brain Tumor Detection</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <button class="scroll-to-top" aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <header class="header">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo/logo-White.png" alt="TumorXtract Logo">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="#team"><i class="fas fa-users"></i> Team</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Sign Up</a>
+                </div>
+                <div class="user-menu" style="display: none;">
+                    <img src="assets/images/team/image 1.png" alt="User Profile" class="profile-img">
+                    <div class="user-info">
+                        <span class="user-name">Dr. John Doe</span>
+                        <span class="user-role">Neurologist</span>
+                    </div>
+                    <button class="menu-toggle" aria-label="Toggle User Menu">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user-gear"></i>
+                            Profile Management
+                        </a>
+                        <a href="#" class="dropdown-item sign-out">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Sign Out
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main class="main-content">
+            <section class="hero" id="home">
+                <div class="hero-content">
+                    <h1>Detect & Segment Brain Tumors With AI Precision</h1>
+                    <p>TumorXtract harnesses cutting-edge AI technology to analyze brain MRI scans, providing healthcare professionals with fast, accurate, and reliable tumor detection results.</p>
+                    <button id="heroStartDetectionBtn">Start Detection Now</button>
+                </div>
+            </section>
+            
+            <section id="about">
+                <section id="what-is-brain-tumor" class="what-is section">
+                    <div class="section-container">
+                        <h2>What is a Brain Tumor?</h2>
+                        <p>A brain tumor is a mass or growth of abnormal cells in your brain. Early detection is crucial for effective treatment and improved patient outcomes. Our AI-powered system helps medical professionals identify and analyze potential tumors quickly and accurately.</p>
+                        <div class="stats">
+                            <div>
+                                <h3>700,000+</h3>
+                                <p>Over 700,000 people in the U.S. live with a brain tumor today.</p>
+                            </div>
+                            <div>
+                                <h3>85,000</h3>
+                                <p>About 85,000 new cases of brain tumors are diagnosed each year in the U.S.</p>
+                            </div>
+                            <div>
+                                <h3>120+</h3>
+                                <p>Over 120 different types of brain tumors exist, both malignant and benign.</p>
+                            </div>
+                            <div>
+                                <h3>16,000</h3>
+                                <p>About 16,000 deaths per year from brain tumors.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="technology" class="ai-overview section">
+                    <div class="section-container">
+                        <h2>AI Technology Overview</h2>
+                        <p>Our state-of-the-art AI system combines deep learning algorithms with advanced convolutional neural networks to provide highly accurate tumor detection and segmentation. Built on extensive medical imaging data, our system delivers reliable results to support healthcare professionals in their diagnostic process.</p>
+                        <div class="accuracy-container">
+                            <div class="accuracy">
+                                <p>Detection Accuracy</p>
+                                <div>98.7%</div>
+                            </div>
+                            <div class="accuracy">
+                                <p>Segmentation Accuracy</p>
+                                <div>99.3%</div>
+                            </div>
+                        </div>
+                        <div class="tech-features">
+                            <div class="feature">
+                                <h3>Deep Learning</h3>
+                                <p>Advanced neural networks trained on vast medical datasets</p>
+                            </div>
+                            <div class="feature">
+                                <h3>Real-time Analysis</h3>
+                                <p>Instant processing and results visualization</p>
+                            </div>
+                            <div class="feature">
+                                <h3>High Precision</h3>
+                                <p>Accurate tumor detection and segmentation</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="process" class="how-it-works section">
+                    <div class="section-container">
+                        <h2>How TumorXtract works</h2>
+                        <div class="steps">
+                            <div>
+                                <img src="assets/images/icons/upload_scan.png" alt="Upload Scan">
+                                <h3>Upload Your Scan</h3>
+                                <p>Securely upload your MRI brain scan images to our HIPAA-compliant platform for analysis.</p>
+                            </div>
+                            <div>
+                                <img src="assets/images/icons/ai_analysis.png" alt="AI Analysis">
+                                <h3>AI-Powered Analysis</h3>
+                                <p>Our state-of-the-art AI algorithms analyze the scans using deep learning technology.</p>
+                            </div>
+                            <div>
+                                <img src="assets/images/icons/get_results.png" alt="Get Results">
+                                <h3>Instant Results</h3>
+                                <p>Receive comprehensive reports with tumor detection results and visualization.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="ready-to-detect" class="ready-to-detect section">
+                    <div class="section-container">
+                        <h2>Ready to Detect with Confidence?</h2>
+                        <p>Join thousands of healthcare professionals using TumorXtract for accurate brain tumor detection.</p>
+                        <button id="readyGetStartedBtn">Get Started</button>
+                    </div>
+                </section>
+            </section>
+            
+            <section id="gallery" class="our-gallery section">
+                <div class="section-container">
+                    <h2>Our Gallery</h2>
+                    <div class="gallery">
+                        <div class="gallery-item">
+                            <img src="assets/images/gallery/1mri.jpg" alt="Brain MRI Sample 1" data-full="assets/images/gallery/1mri.jpg">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/gallery/2mri.jpg" alt="Brain MRI Sample 2" data-full="assets/images/gallery/2mri.jpg">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/gallery/3mri.jpg" alt="Brain MRI Sample 3" data-full="assets/images/gallery/3mri.jpg">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/gallery/4mri.jpg" alt="Brain MRI Sample 4" data-full="assets/images/gallery/4mri.jpg">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/gallery/5mri.jpg" alt="Brain MRI Sample 5" data-full="assets/images/gallery/5mri.jpg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="team" class="team-members section">
+                <div class="section-container">
+                    <h2>Team Members</h2>
+                    <div class="team-container">
+                        <button class="team-scroll-btn prev" aria-label="Previous team members">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="team-scroll-btn next" aria-label="Next team members">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="team">
+                            <div class="team-member">
+                                <img src="assets/images/team/image 2.png" alt="Team Member 1">
+                                <h3>Eman Essam Al-Dien</h3>
+                                <p>BackEnd Developer</p>
+                            </div>
+                            <div class="team-member">
+                                <img src="assets/images/team/image 1.png" alt="Team Member 2">
+                                <h3>Zeyad Mohamed</h3>
+                                <p>UI/UX & FrontEnd Developer</p>
+                            </div>
+                            <div class="team-member">
+                                <img src="assets/images/team/image 2.png" alt="Team Member 3">
+                                <h3>Marina Essam</h3>
+                                <p>AI Research</p>
+                            </div>
+                            <div class="team-member">
+                                <img src="assets/images/team/image 2.png" alt="Team Member 4">
+                                <h3>Eman Moawad</h3>
+                                <p>AI Research</p>
+                            </div>
+                            <div class="team-member">
+                                <img src="assets/images/team/image 1.png" alt="Team Member 5">
+                                <h3>Amr Esmaail</h3>
+                                <p>FrontEnd Developer</p>
+                            </div>
+                            <div class="team-member">
+                                <img src="assets/images/team/image 1.png" alt="Team Member 6">
+                                <h3>George Sherif</h3>
+                                <p>AI Research</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo/logo-White.png" alt="TumorXtract Logo">
+                    </div>
+                    <p>Advanced AI-powered brain tumor detection</p>
+                    <p class="copyright">© 2025 By EELU Graduation Project</p>
+                </div>
+                <div class="footer-center">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#about">About Us</a>
+                        <a href="#">Services</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="gallery-lightbox">
+            <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+            <button class="lightbox-prev" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-next" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="lightbox-content">
+                <img src="" alt="Full size image">
+            </div>
+        </div>
+    </div>
+    <script src="scripts/shared/api-config.js"></script>
+    <script src="scripts/shared/auth-utils.js"></script>
+    <script src="script.js"></script>
+    <script src="scripts/index-page.js"></script>
+</body>
+</html>

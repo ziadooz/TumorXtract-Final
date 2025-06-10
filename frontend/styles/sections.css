@@ -1,0 +1,42 @@
+/* Import base styles first */
+@import url('./sections/base.css');
+
+/* Import hero section */
+@import url('./hero.css');
+
+/* Import main sections */
+@import url('./sections/whatIs-ai.css');
+@import url('./sections/ai-overview.css');
+@import url('./sections/how-it-works.css');
+@import url('./sections/works-gallery.css');
+@import url('./sections/ready-detect.css');
+@import url('./sections/ready-team.css');
+@import url('./sections/team-section.css');
+@import url('./sections/team-components.css');
+
+/* Set global section styles */
+.section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.section-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    width: 100%;
+}
+
+/* Ensure proper spacing between sections */
+.section + .section {
+    margin-top: var(--space-xl);
+}
+
+/* Style for the parent About section container */
+#about {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Ensure it has sufficient height */
+    display: block;
+}

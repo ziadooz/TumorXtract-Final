@@ -1,0 +1,132 @@
+/* Responsive Styles */
+
+/* Tablet and smaller desktop */
+@media (max-width: 1024px) {
+    .detect-container {
+        padding: var(--space-lg);
+    }
+
+    .requirements-grid {
+        gap: var(--space-md);
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+    .detect-container {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .detect-content {
+        padding: var(--space-lg);
+    }
+
+    .form-section {
+        padding: var(--space-md);
+    }
+
+    /* Grid Layouts */
+    .requirements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Upload Area */
+    .upload-area {
+        padding: var(--space-xl) var(--space-md);
+    }
+
+    .file-requirements {
+        flex-direction: column;
+        gap: var(--space-sm);
+        align-items: center;
+    }
+
+    /* Form Elements */
+    .patient-select {
+        max-width: 100%;
+    }
+
+    /* Action Buttons */
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: var(--space-sm);
+    }
+
+    .cancel-button,
+    .analyze-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Results Section */
+    .results-actions {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    .results-actions button {
+        width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .detect-content h1 {
+        font-size: calc(var(--font-xl) * 1.1);
+    }
+
+    .detect-content .subtitle {
+        font-size: var(--font-medium);
+    }
+
+    /* Upload Content */
+    .upload-content i {
+        font-size: 42px;
+    }
+
+    .upload-content h3 {
+        font-size: var(--font-large);
+    }
+
+    /* Requirements */
+    .requirement-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+    }
+
+    .requirement-header i {
+        width: 44px;
+        height: 44px;
+        font-size: 24px;
+    }
+
+    /* Analysis Section */
+    .analysis-status {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .status-text {
+        text-align: center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 360px) {
+    .detect-container {
+        padding: var(--space-md);
+    }
+
+    .detect-content {
+        padding: var(--space-md);
+    }
+
+    .form-section {
+        padding: var(--space-sm);
+    }
+
+    .upload-area {
+        padding: var(--space-lg) var(--space-sm);
+    }
+}

@@ -1,0 +1,41 @@
+/* Detect Page - Main Stylesheet */
+
+/* Base Styles */
+@import './_base.css';
+
+/* Form Components */
+@import './_forms.css';
+
+/* Requirements Section */
+@import './_requirements.css';
+
+/* Upload Area */
+@import './_upload.css';
+
+/* Analysis Section */
+@import './_analysis.css';
+
+/* Responsive Styles */
+@import './_responsive.css';
+
+/* Layout Overrides */
+/* Reverting previous changes that caused layout issues */
+/* .detect-content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+} */
+
+/* .form-section {
+    margin-bottom: var(--space-lg);
+} */
+
+/* .form-actions {
+    position: sticky;
+    bottom: var(--space-lg);
+    margin-top: auto;
+    padding: var(--space-lg);
+    background: white;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+} */

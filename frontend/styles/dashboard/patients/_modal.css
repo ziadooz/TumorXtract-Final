@@ -1,0 +1,507 @@
+/* Modal Container & Overlay */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(var(--modal-backdrop-blur));
+}
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--modal-width);
+    max-width: var(--modal-max-width);
+    max-height: var(--modal-max-height);
+    margin: 0 auto;
+    z-index: 2001;
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: var(--modal-border-radius);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal.active .modal-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modal Header */
+.modal-header {
+    height: var(--modal-header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--modal-header-padding);
+    background: var(--nav-bg-color);
+    color: #fff;
+    border-radius: var(--modal-border-radius) var(--modal-border-radius) 0 0;
+    flex-shrink: 0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: var(--modal-title-size);
+    font-weight: var(--modal-title-weight);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: var(--space-xs);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(90deg);
+}
+
+/* Modal Body */
+.modal-body {
+    padding: var(--modal-padding);
+    max-height: calc(85vh - 130px);
+    overflow-y: auto;
+    position: relative;
+    flex: 1;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+/* Patient Profile in Modal */
+.patient-profile {
+    display: flex;
+    align-items: center;
+    gap: var(--modal-padding);
+    padding-bottom: var(--modal-padding);
+    margin-bottom: var(--modal-padding);
+    border-bottom: 1px solid var(--table-border-color);
+}
+
+.patient-modal-avatar {
+    width: var(--modal-avatar-size);
+    height: var(--modal-avatar-size);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--shadow-md);
+    flex-shrink: 0;
+}
+
+.patient-modal-info {
+    flex: 1;
+}
+
+.patient-modal-name {
+    font-size: var(--font-large);
+    color: var(--text-color);
+    margin: 0 0 var(--space-xs);
+}
+
+.patient-modal-id {
+    color: var(--secondary-color);
+    font-size: var(--font-medium);
+    display: block;
+}
+
+/* Modal Tabs */
+.modal-tabs {
+    display: flex;
+    gap: var(--space-xs);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--table-border-color);
+    margin-bottom: var(--modal-content-spacing);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: var(--space-xs) var(--space-md);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: var(--font-medium);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: color 0.3s ease;
+}
+
+.tab-btn i {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--primary-color);
+}
+
+.tab-btn:hover i {
+    opacity: 1;
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.tab-btn.active i {
+    opacity: 1;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+}
+
+.tab-btn:not(.active)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.tab-btn:hover::after {
+    transform: scaleX(1);
+}
+
+/* Tab Content */
+.tab-content {
+    position: relative;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+.tab-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.tab-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tab-content::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.tab-pane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px);
+    transition: 
+        opacity 0.3s ease,
+        visibility 0s linear 0.3s,
+        transform 0.3s ease;
+}
+
+.tab-pane.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: 
+        opacity 0.3s ease,
+        visibility 0s linear,
+        transform 0.3s ease;
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    padding: var(--space-xs) var(--space-xs) var(--space-lg);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.info-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.info-item label {
+    font-size: var(--font-small);
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-item span,
+.info-item p {
+    font-size: var(--font-medium);
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+/* MRI Images Section */
+.mri-images-container {
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--table-border-color);
+}
+
+.mri-images-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    margin-top: var(--space-md);
+}
+
+.mri-image-wrapper {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: calc(50% - var(--space-lg) / 2);
+}
+
+.mri-image-wrapper p {
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--text-color);
+    font-size: var(--font-small);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mri-scan-img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid var(--table-border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    object-fit: contain;
+}
+
+.mri-scan-img:hover {
+    transform: scale(1.02);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+/* Responsive adjustments for MRI images */
+@media (max-width: 768px) {
+    .mri-images-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-md);
+    }
+    
+    .mri-image-wrapper {
+        max-width: 90%;
+        min-width: unset;
+    }
+}
+
+@media (max-width: 480px) {
+    .mri-image-wrapper {
+        max-width: 100%;
+    }
+    
+    .mri-images-container {
+        margin-top: var(--space-sm);
+        padding-top: var(--space-sm);
+    }
+}
+
+/* Modal Footer */
+.modal-footer {
+    height: var(--modal-footer-height);
+    padding: var(--modal-padding);
+    border-top: 1px solid var(--table-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.02);
+    flex-shrink: 0;
+}
+
+.edit-patient-btn {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-medium);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 40px;
+}
+
+.edit-patient-btn:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Loading State */
+.modal-loading .modal-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 10;
+}
+
+.modal-loading .modal-body::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.8s linear infinite;
+    z-index: 11;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Disabled State */
+.modal-loading .tab-btn,
+.modal-loading .edit-patient-btn {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Analysis Info Tab Styling */
+#analysis .info-grid {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--table-border-color);
+    margin-top: var(--space-md);
+    padding-bottom: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+/* Print Styles */
+@media print {
+    .modal {
+        position: relative;
+        display: block;
+        height: auto;
+        overflow: visible;
+    }
+
+    .modal-overlay {
+        display: none;
+    }
+
+    .modal-container {
+        position: relative;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        top: 0;
+        left: 0;
+    }
+
+    .modal-body {
+        max-height: none;
+        overflow: visible;
+    }
+
+    .tab-pane {
+        display: block !important;
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .modal-tabs {
+        display: none;
+    }
+}

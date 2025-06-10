@@ -1,0 +1,140 @@
+/* Responsive Styles */
+
+/* Large Screens (1200px and below) */
+@media (max-width: 1200px) {
+    /* Keep default styles */
+}
+
+/* Medium Screens (992px and below) */
+@media (max-width: 992px) {
+    .modal-container {
+        width: 85%;
+        max-width: 550px;
+    }
+
+    .modal-body {
+        padding: var(--modal-padding);
+    }
+}
+
+/* Small Screens (768px and below) */
+@media (max-width: 768px) {
+    .modal-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .modal-header {
+        padding: var(--modal-header-padding);
+    }
+
+    .modal-header h2 {
+        font-size: var(--modal-title-size);
+    }
+
+    .modal-body {
+        max-height: calc(85vh - 120px);
+    }
+
+    .modal-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        margin: 0 calc(-1 * var(--modal-padding));
+        padding: 0 var(--modal-padding) var(--space-sm);
+    }
+}
+
+/* Extra Small Screens (576px and below) */
+@media (max-width: 576px) {
+    .modal-container {
+        width: 95%;
+    }
+
+    .modal-header {
+        height: 50px;
+        padding: var(--space-sm);
+    }
+
+    .modal-body {
+        padding: var(--space-md);
+        max-height: calc(85vh - 110px);
+    }
+
+    .modal-footer {
+        height: 50px;
+        padding: var(--space-sm);
+    }
+
+    .patient-modal-avatar {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Height-based Media Queries */
+@media (max-height: 700px) {
+    .modal-container {
+        max-height: 90vh;
+    }
+
+    .modal-body {
+        max-height: calc(90vh - 110px);
+    }
+
+    .patient-profile {
+        padding-bottom: var(--space-sm);
+        margin-bottom: var(--space-sm);
+    }
+
+    .info-grid {
+        gap: var(--space-sm);
+    }
+}
+
+/* Short Screens */
+@media (max-height: 600px) {
+    .modal-container {
+        max-height: 95vh;
+    }
+
+    .modal-body {
+        padding: var(--space-sm);
+    }
+
+    .patient-modal-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .modal-tabs {
+        margin-bottom: var(--space-sm);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .modal {
+        position: relative;
+        display: block;
+        height: auto;
+    }
+
+    .modal-overlay {
+        display: none;
+    }
+
+    .modal-container {
+        position: relative;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        top: 0;
+        left: 0;
+    }
+
+    .modal-body {
+        max-height: none;
+        overflow: visible;
+    }
+}

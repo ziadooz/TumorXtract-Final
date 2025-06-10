@@ -1,0 +1,62 @@
+[
+  {
+    "FirstName": "Alice",
+    "LastName": "Smith",
+    "DateOfBirth": "1985-03-15T00:00:00Z",
+    "Gender": "Female",
+    "Email": "alice.s@email.com",
+    "Phone": "555-0101",
+    "PrimarySymptoms": "Chest pain, shortness of breath",
+    "MedicalHistory": "Hypertension",
+    "DoctorId": "8e988e7b-c694-4b6c-874b-60a43897ad19",
+    "Address": {
+      "Street": "123 Oak Street",
+      "City": "Metropolis",
+      "State": "NY",
+      "Country": "USA"
+    },
+    "Analysis": null
+  },
+  {
+    "FirstName": "Bob",
+    "LastName": "Johnson",
+    "DateOfBirth": "1972-11-20T00:00:00Z",
+    "Gender": "Male",
+    "Email": "bob.j@email.com",
+    "Phone": "555-0102",
+    "PrimarySymptoms": "Persistent headaches, dizziness",
+    "MedicalHistory": "Migraines",
+    "DoctorId": "8e988e7b-c694-4b6c-874b-60a43897ad19",
+    "Address": {
+      "Street": "456 Maple Avenue",
+      "City": "Gotham",
+      "State": "NJ",
+      "Country": "USA"
+    },
+    "Analysis": {
+      "MRIScane": "images/Patient/Mask.png",
+      "Mask": "images/Patient/Te-gl_0010.jpg",
+      "TumorType": "Glioma",
+      "AnalysisDate": "2023-10-26T10:30:00Z",
+      "Confidence": 0.85
+    }
+  },
+  {
+    "FirstName": "Charlie",
+    "LastName": "Brown",
+    "DateOfBirth": "2018-07-01T00:00:00Z",
+    "Gender": "Male",
+    "Email": "charlie.b@email.com",
+    "Phone": "555-0103",
+    "PrimarySymptoms": "Fever, cough",
+    "MedicalHistory": "Asthma",
+    "DoctorId": "8e988e7b-c694-4b6c-874b-60a43897ad19",
+    "Address": {
+      "Street": "789 Pine Street",
+      "City": "Smallville",
+      "State": "KA",
+      "Country": "USA"
+    },
+    "Analysis": null
+  }
+]

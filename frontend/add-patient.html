@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Edit Patient - TumorXtract</title>
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Dashboard Styles -->
+    <link rel="stylesheet" href="styles/dashboard/_header.css">
+    <link rel="stylesheet" href="styles/dashboard/add-patient.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="left-section">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo/logo-White.png" alt="TumorXtract Logo">
+                        </a>
+                    </div>
+                    <button class="nav-toggle" aria-label="Toggle Navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <nav class="dashboard-nav">
+                        <a href="index.html" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            Home
+                        </a>
+                        <a href="assistants.html" class="nav-item">
+                            <i class="fas fa-user-nurse"></i>
+                            Assistants
+                        </a>
+                        <a href="add-patient.html" class="nav-item active">
+                            <i class="fas fa-user-plus"></i>
+                            Add Patient
+                        </a>
+                        <a href="patients.html" class="nav-item">
+                            <i class="fas fa-users"></i>
+                            Patients
+                        </a>
+                        <a href="detect.html" class="nav-item">
+                            <i class="fas fa-brain"></i>
+                            Detect
+                        </a>
+                    </nav>
+                </div>
+                <div class="right-section">
+                    <div class="user-menu">
+                        <img src="assets/images/team/image 1.png" alt="User Profile" class="profile-img">
+                        <div class="user-info">
+                            <span class="user-name">Dr. John Doe</span>
+                            <span class="user-role">Neurologist</span>
+                        </div>
+                        <button class="menu-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown">
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user-gear"></i>
+                                Profile Management
+                            </a>
+                            <a href="index.html" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="add-patient-container">
+                <div class="form-container">
+                    <h1 id="pageTitle">Add New Patient</h1>
+                    <p class="subtitle" id="pageSubtitle">Enter patient information to create a new record</p>
+                    
+                    <form class="patient-form" id="patientForm">
+                        <input type="hidden" id="patientId" name="patientId">
+                        
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h2>Personal Information</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <div class="input-group">
+                                        <input type="text" id="firstName" name="firstName" required>
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <div class="input-group">
+                                        <input type="text" id="lastName" name="lastName" required>
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateOfBirth">Date of Birth</label>
+                                    <div class="input-group">
+                                        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <div class="input-group">
+                                        <select id="gender" name="gender" required>
+                                            <option value="">Select gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                        <i class="fas fa-venus-mars"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="form-section">
+                            <h2>Contact Information</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <div class="input-group">
+                                        <input type="email" id="email" name="email" required>
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <div class="input-group">
+                                        <input type="tel" id="phone" name="phone" required>
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="street">Street</label>
+                                    <div class="input-group">
+                                        <input type="text" id="street" name="street" required>
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <div class="input-group">
+                                        <input type="text" id="city" name="city" required>
+                                        <i class="fas fa-city"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State <span class="optional">Optional</span></label>
+                                    <div class="input-group">
+                                        <input type="text" id="state" name="state">
+                                        <i class="fas fa-map"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <div class="input-group">
+                                        <input type="text" id="country" name="country" placeholder="Enter country name" required>
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Medical Information -->
+                        <div class="form-section">
+                            <h2>Medical Information</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="symptoms">Primary Symptoms</label>
+                                    <div class="input-group">
+                                        <input type="text" id="symptoms" name="symptoms" required>
+                                        <i class="fas fa-notes-medical"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="medicalHistory">Medical History</label>
+                                    <div class="input-group">
+                                        <textarea id="medicalHistory" name="medicalHistory" rows="4"></textarea>
+                                        <i class="fas fa-file-medical"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Analysis with AI (Optional) -->
+                        <div class="form-section ai-section">
+                            <h2>Analysis with AI <span class="section-optional">(Optional)</span></h2>
+                            <p class="section-helper">You can add AI analysis information later if not available now.</p>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="mriImage">MRI Image <span class="optional">Optional</span></label>
+                                    <div class="input-group file-input">
+                                        <input type="file" id="mriImage" name="mriImage" accept="image/*" class="file-input__input">
+                                        <label for="mriImage" class="file-input__label">
+                                            <i class="fas fa-brain"></i>
+                                            <span>Choose MRI file</span>
+                                        </label>
+                                    </div>
+                                    <div class="file-info" id="mriImageInfo"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="segmentationMask">Segmentation Mask <span class="optional">Optional</span></label>
+                                    <div class="input-group file-input">
+                                        <input type="file" id="segmentationMask" name="segmentationMask" accept="image/*" class="file-input__input">
+                                        <label for="segmentationMask" class="file-input__label">
+                                            <i class="fas fa-layer-group"></i>
+                                            <span>Choose mask file</span>
+                                        </label>
+                                    </div>
+                                    <div class="file-info" id="segmentationMaskInfo"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tumorType">Tumor Type <span class="optional">Optional</span></label>
+                                    <div class="input-group">
+                                        <select id="tumorType" name="tumorType">
+                                            <option value="">Select tumor type</option>
+                                            <option value="glioma">Glioma</option>
+                                            <option value="meningioma">Meningioma</option>
+                                            <option value="pituitary">Pituitary</option>
+                                            <option value="nontumor">Non-Tumor</option>
+                                        </select>
+                                        <i class="fas fa-microscope"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confidenceScore">Confidence Score (%) <span class="optional">Optional</span></label>
+                                    <div class="input-group">
+                                        <input type="number" id="confidenceScore" name="confidenceScore" min="0" max="100" step="0.01">
+                                        <i class="fas fa-percentage"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="cancel-button">Cancel</button>
+                            <button type="submit" class="submit-button">
+                                <span class="button-text">Add Patient</span>
+                                <div class="button-loader"></div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo/logo-White.png" alt="TumorXtract Logo">
+                    </div>
+                    <p>Advanced AI-powered brain tumor detection</p>
+                    <p class="copyright">© 2025 By EELU Graduation Project</p>
+                </div>
+                <div class="footer-center">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html#about">About Us</a>
+                        <a href="#">Services</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Scripts -->
+    <script src="scripts/shared/api-config.js"></script>
+    <script src="scripts/shared/auth-utils.js"></script>
+    <script src="scripts/shared/dashboard-header.js"></script>
+    <script src="scripts/dashboard/add-patient.js"></script>
+</body>
+</html>

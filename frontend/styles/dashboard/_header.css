@@ -1,0 +1,307 @@
+/* Dashboard Header Styles */
+.dashboard-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--nav-bg-color);
+    padding: var(--space-sm) 0;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Higher specificity for dashboard header content */
+.dashboard-header .header-content {
+    max-width: var(--container-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    height: 60px;
+}
+
+/* Ensure each section takes appropriate space */
+.dashboard-header .left-section {
+    flex: 0 0 auto;
+    min-width: 200px;
+}
+
+.dashboard-header .dashboard-nav {
+    flex: 1 1 auto;
+}
+
+.dashboard-header .right-section {
+    flex: 0 0 auto;
+}
+
+/* Left Section */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.logo {
+    height: 60px;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nav-text-color);
+    font-size: var(--font-large);
+    cursor: pointer;
+}
+
+/* Dashboard Navigation */
+.dashboard-header .dashboard-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin: 0 var(--space-lg);
+    position: relative;
+}
+
+/* Center nav items by default */
+.dashboard-header .dashboard-nav a.nav-item {
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-item {
+    color: var(--nav-text-color);
+    text-decoration: none;
+    font-size: var(--font-medium);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-normal);
+}
+
+.nav-item i {
+    font-size: var(--font-medium);
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+    background: var(--primary-color);
+    font-weight: 600;
+}
+
+/* User Menu */
+.dashboard-header .user-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+    margin-left: auto;
+}
+
+.user-menu:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    color: var(--nav-text-color);
+    font-weight: 600;
+    font-size: var(--font-small);
+}
+
+.user-role {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--font-xs);
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--nav-text-color);
+    cursor: pointer;
+    padding: var(--space-xs);
+    transition: transform var(--transition-normal);
+}
+
+.user-menu.active .menu-toggle {
+    transform: rotate(180deg);
+}
+
+.user-menu.active {
+    z-index: 1001;
+}
+
+/* User Dropdown */
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + var(--space-xs));
+    right: 0;
+    min-width: 200px;
+    background: var(--nav-bg-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-xs);
+    box-shadow: var(--shadow-lg);
+}
+
+.user-menu.active .user-dropdown {
+    display: block;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--nav-text-color);
+    text-decoration: none;
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-normal);
+}
+
+.dropdown-item i {
+    font-size: var(--font-medium);
+    opacity: 0.8;
+}
+
+.dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .dashboard-header .header-content {
+        padding: 0 var(--space-md);
+    }
+}
+
+@media (max-width: 992px) {
+    .dashboard-header {
+        padding: var(--space-xs) 0;
+    }
+
+    .dashboard-header .header-content {
+        height: 50px;
+    }
+
+    .dashboard-header .left-section {
+        min-width: auto;
+        flex: 0 1 auto;
+    }
+
+    .dashboard-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg-color);
+        padding: var(--space-md);
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-sm);
+        box-shadow: var(--shadow-md);
+        z-index: 1000;
+    }
+
+    .dashboard-nav.active {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-toggle:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .nav-item {
+        padding: var(--space-sm);
+        justify-content: center;
+    }
+
+    /* Adjust user menu for mobile */
+    .user-menu {
+        padding: var(--space-xs);
+        background: none;
+    }
+
+    .user-info {
+        display: none;
+    }
+
+    .menu-toggle {
+        padding: 0;
+    }
+
+    .user-dropdown {
+        right: 0;
+        min-width: 180px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header .header-content {
+        padding: 0 var(--space-sm);
+        gap: var(--space-sm);
+    }
+
+    .logo {
+        height: 35px;
+    }
+
+    .nav-toggle {
+        width: 35px;
+        height: 35px;
+    }
+
+    .profile-img {
+        width: 35px;
+        height: 35px;
+    }
+}

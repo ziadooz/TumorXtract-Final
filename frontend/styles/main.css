@@ -1,0 +1,91 @@
+/* Import page-specific styles */
+@import url('./reset.css');
+@import url('./variables.css');
+@import url('./header.css');
+@import url('./footer.css');
+@import url('./responsive.css');
+@import url('./hero.css');
+@import url('./sections.css');
+
+/* Common styles shared across all pages */
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--nav-text-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.scroll-to-top:hover {
+    background-color: #27ae60;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.scroll-to-top:active {
+    transform: translateY(1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.scroll-to-top i {
+    font-size: var(--font-large);
+}
+
+/* Container styles */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    /* Removed display: flex and flex-direction: column to avoid conflicts with page-specific layouts */
+}
+
+/* Section container styles */
+.section-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    width: 100%;
+}
+
+.section {
+    padding: var(--space-xxl) 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll-to-top i {
+        font-size: var(--font-medium);
+    }
+
+    .section-container {
+        padding: 0 var(--space-md);
+    }
+
+    .section {
+        padding: var(--space-xl) 0;
+    }
+}

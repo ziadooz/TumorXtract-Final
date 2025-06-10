@@ -1,0 +1,237 @@
+/* Table Styles */
+.patients-table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+.patients-table th,
+.patients-table td {
+    padding: var(--table-cell-padding);
+    text-align: left;
+    border-bottom: 1px solid var(--table-border-color);
+    vertical-align: top;
+    padding-top: calc(var(--table-cell-padding) + 4px);
+}
+
+.patients-table th {
+    font-weight: 600;
+    color: var(--text-color);
+    background: var(--table-header-bg);
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.patients-table th:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.patients-table th::after {
+    content: '↕';
+    position: absolute;
+    right: 8px;
+    opacity: 0.3;
+}
+
+.patients-table th.sort-asc::after {
+    content: '↑';
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.patients-table th.sort-desc::after {
+    content: '↓';
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.patients-table tr {
+    transition: var(--table-transition);
+}
+
+.patients-table tbody tr:hover {
+    background: var(--table-hover-color);
+}
+
+/* Patient Name Cell */
+.patient-name {
+    position: relative;
+    padding: var(--space-xs) 0;
+}
+
+.patient-avatar {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    margin-right: var(--space-md);
+}
+
+.patient-info {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.patient-info .name {
+    font-weight: 600;
+    color: var(--text-color);
+    display: block;
+    line-height: 1.4;
+    margin-bottom: 2px;
+}
+
+.patient-info .id {
+    font-size: var(--font-xs);
+    color: var(--secondary-color);
+    display: block;
+    line-height: 1.4;
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.contact-info span:last-child {
+    font-size: var(--font-small);
+    color: var(--secondary-color);
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xs);
+}
+
+.action-btn {
+    width: var(--action-btn-size);
+    height: var(--action-btn-size);
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--table-transition);
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+.action-btn i {
+    font-size: var(--font-small);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.action-btn.view {
+    background: rgba(52, 152, 219, 0.1);
+    color: #3498db;
+}
+
+.action-btn.edit {
+    background: rgba(46, 204, 113, 0.1);
+    color: var(--primary-color);
+}
+
+.action-btn.delete {
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--accent-color);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+}
+
+.action-btn.view:hover {
+    background: rgba(52, 152, 219, 0.2);
+}
+
+.action-btn.edit:hover {
+    background: rgba(46, 204, 113, 0.2);
+}
+
+.action-btn.delete:hover {
+    background: rgba(231, 76, 60, 0.2);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.page-btn {
+    min-width: 36px;
+    height: 36px;
+    border: none;
+    background: none;
+    border-radius: var(--radius-sm);
+    color: var(--text-color);
+    font-size: var(--font-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--table-transition);
+}
+
+.page-btn:hover:not(:disabled) {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.page-btn.active {
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dots {
+    color: var(--text-color);
+    padding: 0 var(--space-xs);
+}
+
+/* Loading States */
+.loading-row td {
+    padding: var(--table-cell-padding);
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-row td::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.06) 25%,
+        rgba(0, 0, 0, 0.1) 37%,
+        rgba(0, 0, 0, 0.06) 63%
+    );
+    animation: shimmer 1.4s linear infinite;
+    transform: translateX(-100%);
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}

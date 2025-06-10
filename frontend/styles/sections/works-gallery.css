@@ -1,0 +1,212 @@
+/* Gallery Section */
+.our-gallery {
+    background: var(--background-color);
+    padding: var(--space-xxl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.our-gallery .section-container {
+    max-width: var(--container-width);
+}
+
+.our-gallery h2 {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    color: var(--text-color);
+    font-weight: 800;
+    font-size: calc(var(--font-xxlarge) * 1.4);
+}
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+}
+
+/* Gallery Items */
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 4/3;
+    background: var(--nav-bg-color);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all var(--transition-normal);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    pointer-events: none;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Lightbox Navigation */
+.lightbox button {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    z-index: 1001;
+}
+
+.lightbox button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.lightbox-close {
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 1400px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        padding: var(--space-md) var(--space-lg);
+    }
+}
+
+@media (max-width: 1200px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: var(--space-sm);
+    }
+}
+
+@media (max-width: 768px) {
+    .our-gallery {
+        padding: var(--space-xl) 0;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: var(--space-sm);
+        padding: var(--space-md);
+    }
+
+    .lightbox button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+    }
+
+    /* Hide navigation buttons on mobile, use swipe instead */
+    .lightbox-prev,
+    .lightbox-next {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+        padding: var(--space-sm);
+    }
+
+    .lightbox-content {
+        width: 95%;
+    }
+}
+
+/* Enhance touch interactions */
+@media (hover: none) {
+    .gallery-item::after {
+        display: none;
+    }
+
+    .lightbox button {
+        background: rgba(255, 255, 255, 0.15);
+    }
+}

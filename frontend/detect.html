@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detect Tumor - TumorXtract</title>
+    
+    <!-- PDF Generation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Dashboard Styles -->
+    <link rel="stylesheet" href="styles/dashboard/_header.css">
+    <!-- Detect Page Modular Styles -->
+    <link rel="stylesheet" href="styles/dashboard/detect/index.css">
+    <link rel="stylesheet" href="styles/dashboard/detect/_analysis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Fixed Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="left-section">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo/logo-White.png" alt="TumorXtract Logo">
+                        </a>
+                    </div>
+                    <button class="nav-toggle" aria-label="Toggle Navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <nav class="dashboard-nav">
+                        <a href="index.html" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            Home
+                        </a>
+                        <a href="assistants.html" class="nav-item">
+                            <i class="fas fa-user-nurse"></i>
+                            Assistants
+                        </a>
+                        <a href="add-patient.html" class="nav-item">
+                            <i class="fas fa-user-plus"></i>
+                            Add Patient
+                        </a>
+                        <a href="patients.html" class="nav-item">
+                            <i class="fas fa-users"></i>
+                            Patients
+                        </a>
+                        <a href="detect.html" class="nav-item active">
+                            <i class="fas fa-brain"></i>
+                            Detect
+                        </a>
+                    </nav>
+                </div>
+                <div class="right-section">
+                    <div class="user-menu">
+                        <img src="assets/images/team/image 1.png" alt="User Profile" class="profile-img">
+                        <div class="user-info">
+                            <span class="user-name">Dr. John Doe</span>
+                            <span class="user-role">Neurologist</span>
+                        </div>
+                        <button class="menu-toggle" aria-label="Toggle User Menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown">
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user-gear"></i>
+                                Profile Management
+                            </a>
+                            <a href="index.html" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="detect-container">
+                <div class="detect-content">
+                    <h1>Tumor Detection & Segmentation</h1>
+                    <p class="subtitle">Upload MRI scan to detect and segment brain tumors</p>
+
+                    <!-- Patient Selection -->
+                    <div class="form-section patient-info-section">
+                        <div class="patient-info-container">
+                            <h2>Patient Information</h2>
+                            <div class="patient-select">
+                                <label for="patientSelect">Select Patient</label>
+                                <div class="select-group">
+                                    <select id="patientSelect" required>
+                                        <option value="">Choose a patient</option>
+                                        <!-- Options will be populated by JavaScript -->
+                                    </select>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="helper-text">
+                                    <i class="fas fa-info-circle"></i>
+                                    Select the patient whose MRI scan you want to analyze
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upload Requirements -->
+                    <div class="form-section requirements-section">
+                        <h2>Upload Requirements</h2>
+                        <div class="requirements-grid">
+                            <div class="requirement-card">
+                                <div class="requirement-header">
+                                    <i class="fas fa-file-image"></i>
+                                    <h3>Supported File Formats</h3>
+                                </div>
+                                <ul class="requirement-list">
+                                    <li><i class="fas fa-check"></i> PNG (.png)</li>
+                                    <li><i class="fas fa-check"></i> JPEG (.jpg, .jpeg)</li>
+                                </ul>
+                            </div>
+                            <div class="requirement-card">
+                                <div class="requirement-header">
+                                    <i class="fas fa-image"></i>
+                                    <h3>Image Quality</h3>
+                                </div>
+                                <ul class="requirement-list">
+                                    <li><i class="fas fa-check"></i> Clear, non-blurry scan</li>
+                                    <li><i class="fas fa-check"></i> Full brain visibility</li>
+                                    <li><i class="fas fa-check"></i> No artifacts or distortions</li>
+                                    <li><i class="fas fa-check"></i> Min resolution: 256x256 pixels</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="requirements-note">
+                            <i class="fas fa-info-circle"></i>
+                            <p>For optimal results, please ensure your MRI scan meets these requirements. High-quality scans lead to more accurate analysis.</p>
+                        </div>
+                    </div>
+
+                    <!-- File Upload Section -->
+                    <div class="form-section">
+                        <h2>MRI Scan Upload</h2>
+                        <div class="upload-area" id="uploadArea">
+                            <input type="file" id="fileInput" accept="image/png,image/jpeg" hidden>
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h3>Drag & Drop your MRI scan here</h3>
+                                <p>or</p>
+                                <button class="browse-btn" onclick="document.getElementById('fileInput').click()">
+                                    Browse Files
+                                </button>
+                                <div class="file-requirements">
+                                    <p class="file-info">
+                                        <i class="fas fa-file-image"></i> Supported formats: PNG, JPEG
+                                    </p>
+                                    <p class="file-info">
+                                        <i class="fas fa-expand"></i> Minimum resolution: 256x256 pixels
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="upload-progress" hidden>
+                                <div class="progress-bar">
+                                    <div class="progress"></div>
+                                </div>
+                                <p class="progress-text">Uploading... <span>0%</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analysis Section -->
+                    <div class="form-section" id="analysisSection" hidden>
+                        <h2>Analysis Results</h2>
+                        <div class="analysis-content">
+                            <!-- Loading Status -->
+                            <div class="analysis-status">
+                                <div class="status-indicator">
+                                    <div class="spinner"></div>
+                                </div>
+                                <p class="status-text">Analyzing MRI scan...</p>
+                            </div>
+
+                            <!-- Analysis Results -->
+                            <div class="analysis-results" hidden>
+                                <!-- Image Results -->
+                                <div class="result-images">
+                                    <div class="result-image-card">
+                                        <h4>Original MRI Scan</h4>
+                                        <div class="result-image-container">
+                                            <img class="result-image" id="originalImage" alt="Original MRI Scan">
+                                        </div>
+                                    </div>
+                                    <div class="result-image-card">
+                                        <h4>Segmentation Overlay</h4>
+                                        <div class="result-image-container">
+                                            <img class="result-image" id="overlayImage" alt="Segmentation Overlay">
+                                        </div>
+                                    </div>
+                                    <div class="result-image-card">
+                                        <h4>Segmentation Mask</h4>
+                                        <div class="result-image-container">
+                                            <img class="result-image" id="maskImage" alt="Segmentation Mask">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Prediction Results -->
+                                <div class="prediction-results">
+                                    <div class="prediction-header">
+                                        <i class="fas fa-brain"></i>
+                                        <h3>Tumor Detection Results</h3>
+                                    </div>
+                                    <div class="prediction-type"></div>
+                                    <div class="confidence-scores">
+                                        <h4>Confidence Scores</h4>
+                                        <div class="score-list">
+                                            <!-- Scores will be populated by JavaScript -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="form-actions">
+                        <button type="button" class="cancel-button">Cancel</button>
+                        <button type="button" class="analyze-button" disabled>
+                            <i class="fas fa-brain"></i>
+                            Analyze Scan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo/logo-White.png" alt="TumorXtract Logo">
+                    </div>
+                    <p>Advanced AI-powered brain tumor detection</p>
+                    <p class="copyright">© 2025 By EELU Graduation Project</p>
+                </div>
+                <div class="footer-center">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html#about">About Us</a>
+                        <a href="#">Services</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Hidden PDF Report Template -->
+    <div id="report-template-container" style="position: absolute; left: -9999px; top: auto; width: 210mm; background-color: white; padding: 20px; color: black; font-family: Arial, sans-serif;">
+        <!-- Header -->
+        <div style="text-align: center; border-bottom: 2px solid #ccc; padding-bottom: 15px; margin-bottom: 25px;">
+            <img id="report-logo" src="assets/images/logo/logo-White.png" alt="TumorXtract Logo" style="width: 120px; margin-bottom: 10px;">
+            <h2 style="margin: 0; color: #2c3e50; font-size: 24px;">Brain Tumor Analysis Report</h2>
+        </div>
+
+        <!-- Patient & Analysis Info -->
+        <div style="margin-bottom: 25px;">
+            <h3 style="color: #34495e; margin-bottom: 15px; font-size: 18px;">Patient Information</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <p style="margin: 5px 0;"><strong>Patient Name:</strong> <span id="report-patient-name"></span></p>
+                <p style="margin: 5px 0;"><strong>Patient ID:</strong> <span id="report-patient-id"></span></p>
+                <p style="margin: 5px 0;"><strong>Date of Birth:</strong> <span id="report-patient-dob"></span></p>
+                <p style="margin: 5px 0;"><strong>Analysis Date:</strong> <span id="report-analysis-date"></span></p>
+            </div>
+        </div>
+
+        <!-- Images -->
+        <div style="display: flex; justify-content: space-around; text-align: center; margin-bottom: 25px; gap: 15px;">
+            <div style="flex: 1;">
+                <p style="margin-bottom: 10px; font-weight: bold; color: #2c3e50;">Original MRI Scan</p>
+                <img id="report-original-mri" src="" style="max-width: 220px; max-height: 220px; border: 2px solid #eee; border-radius: 8px;">
+            </div>
+            <div style="flex: 1;">
+                <p style="margin-bottom: 10px; font-weight: bold; color: #2c3e50;">Segmentation Overlay</p>
+                <img id="report-overlay-mri" src="" style="max-width: 220px; max-height: 220px; border: 2px solid #eee; border-radius: 8px;">
+            </div>
+        </div>
+
+        <!-- AI Results -->
+        <div style="border-top: 2px solid #ccc; padding-top: 20px; margin-bottom: 25px;">
+            <h3 style="color: #34495e; margin-bottom: 15px; font-size: 18px;">AI-Powered Diagnosis</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <p style="margin: 5px 0;"><strong>Detected Tumor Type:</strong> <span id="report-tumor-type"></span></p>
+                <p style="margin: 5px 0;"><strong>Confidence Score:</strong> <span id="report-confidence-score"></span></p>
+            </div>
+            
+            <!-- Confidence Scores Breakdown -->
+            <div style="margin-top: 15px;">
+                <h4 style="color: #34495e; margin-bottom: 10px;">Detailed Confidence Scores</h4>
+                <div id="report-confidence-breakdown" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer/Disclaimer -->
+        <div style="border-top: 1px solid #ccc; padding-top: 15px; text-align: center; font-size: 12px; color: #666;">
+            <p style="margin: 5px 0; font-style: italic;"><strong>Medical Disclaimer:</strong> This report is AI-generated and should be reviewed by a qualified medical professional. It is not intended to replace professional medical diagnosis or treatment.</p>
+            <p style="margin: 5px 0;">Report Generated by TumorXtract | © 2025 EELU Graduation Project</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/shared/api-config.js"></script>
+    <script src="scripts/shared/auth-utils.js"></script>
+    <script src="scripts/shared/dashboard-header.js"></script>
+    <script src="scripts/dashboard/detect.js"></script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Records - TumorXtract</title>
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Dashboard Styles -->
+    <link rel="stylesheet" href="styles/dashboard/_header.css">
+    <link rel="stylesheet" href="styles/dashboard/patients/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Fixed Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="left-section">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/images/logo/logo-White.png" alt="TumorXtract Logo">
+                        </a>
+                    </div>
+                    <button class="nav-toggle" aria-label="Toggle Navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <nav class="dashboard-nav">
+                        <a href="index.html" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            Home
+                        </a>
+                        <a href="assistants.html" class="nav-item">
+                            <i class="fas fa-user-nurse"></i>
+                            Assistants
+                        </a>
+                        <a href="add-patient.html" class="nav-item">
+                            <i class="fas fa-user-plus"></i>
+                            Add Patient
+                        </a>
+                        <a href="patients.html" class="nav-item active">
+                            <i class="fas fa-users"></i>
+                            Patients
+                        </a>
+                        <a href="detect.html" class="nav-item">
+                            <i class="fas fa-brain"></i>
+                            Detect
+                        </a>
+                    </nav>
+                </div>
+                <div class="right-section">
+                    <div class="user-menu">
+                        <img src="assets/images/team/image 1.png" alt="User Profile" class="profile-img">
+                        <div class="user-info">
+                            <span class="user-name">Dr. John Doe</span>
+                            <span class="user-role">Neurologist</span>
+                        </div>
+                        <button class="menu-toggle" aria-label="Toggle User Menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="user-dropdown">
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user-gear"></i>
+                                Profile Management
+                            </a>
+                            <a href="index.html" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="patients-container">
+                <div class="patients-content">
+                    <div class="patients-header">
+                        <h1>Patient Records</h1>
+                        <div class="header-actions">
+                            <div class="search-group">
+                                <input type="text" id="searchPatients" placeholder="Search patients...">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <button class="add-patient-btn" onclick="window.location.href='add-patient.html'">
+                                <i class="fas fa-plus"></i>
+                                Add New Patient
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="patients-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Date of Birth</th>
+                                    <th>Gender</th>
+                                    <th>Contact</th>
+                                    <th>Tumor Type</th>
+                                    <th>Last Visit</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Patient rows will be inserted by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-footer">
+                        <div class="pagination">
+                            <button class="page-btn prev" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <span class="dots">...</span>
+                            <button class="page-btn">10</button>
+                            <button class="page-btn next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="page-info">
+                            Showing <span>1-10</span> of <span>100</span> patients
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Patient Details Modal -->
+        <div class="modal" id="patientModal" role="dialog" aria-labelledby="modalTitle">
+            <div class="modal-overlay" aria-hidden="true"></div>
+            <div class="modal-container">
+                <div class="modal-content">
+                    <header class="modal-header">
+                        <h2 id="modalTitle">Patient Details</h2>
+                        <button class="close-modal" id="closeModal" aria-label="Close modal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </header>
+
+                    <div class="modal-body">
+                        <div class="patient-profile">
+                            <img class="patient-modal-avatar" src="" alt="Patient Photo">
+                            <div class="patient-modal-info">
+                                <h3 class="patient-modal-name"></h3>
+                                <span class="patient-modal-id"></span>
+                            </div>
+                        </div>
+
+                        <div class="modal-tabs" role="tablist">
+                            <button class="tab-btn active" data-tab="personal" role="tab" aria-selected="true" aria-controls="personal">
+                                <i class="fas fa-user"></i>
+                                Personal Info
+                            </button>
+                            <button class="tab-btn" data-tab="medical" role="tab" aria-selected="false" aria-controls="medical">
+                                <i class="fas fa-notes-medical"></i>
+                                Medical Info
+                            </button>
+                            <button class="tab-btn" data-tab="contact" role="tab" aria-selected="false" aria-controls="contact">
+                                <i class="fas fa-address-card"></i>
+                                Contact Info
+                            </button>
+                            <button class="tab-btn" data-tab="analysis" role="tab" aria-selected="false" aria-controls="analysis">
+                                <i class="fas fa-brain"></i>
+                                Analysis Info
+                            </button>
+                        </div>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="personal" role="tabpanel" aria-labelledby="tab-personal">
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>Date of Birth</label>
+                                        <span id="modalDateOfBirth"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Gender</label>
+                                        <span id="modalGender"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="medical" role="tabpanel" aria-labelledby="tab-medical">
+                                <div class="info-grid">
+                                    <div class="info-item full-width">
+                                        <label>Primary Symptoms</label>
+                                        <span id="modalSymptoms"></span>
+                                    </div>
+                                    <div class="info-item full-width">
+                                        <label>Medical History</label>
+                                        <p id="modalMedicalHistory"></p>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Last Visit</label>
+                                        <span id="modalLastVisit"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="contact" role="tabpanel" aria-labelledby="tab-contact">
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>Phone Number</label>
+                                        <span id="modalPhone"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Email</label>
+                                        <span id="modalEmail"></span>
+                                    </div>
+                                    <div class="info-item full-width">
+                                        <label>Address</label>
+                                        <span id="modalAddress"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="analysis" role="tabpanel" aria-labelledby="tab-analysis">
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>Tumor Type</label>
+                                        <span id="modalTumorType"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Confidence Score</label>
+                                        <span id="modalConfidenceScore"></span>
+                                    </div>
+                                    
+                                    <!-- MRI Images Section -->
+                                    <div class="info-item full-width mri-images-container">
+                                        <label>MRI Scans</label>
+                                        <div class="mri-images-grid">
+                                            <div class="mri-image-wrapper">
+                                                <p>Original Scan</p>
+                                                <img id="modalOriginalMri" src="" alt="Original MRI Scan" class="mri-scan-img">
+                                            </div>
+                                            <div class="mri-image-wrapper">
+                                                <p>Mask Image</p>
+                                                <img id="modalMaskMri" src="" alt="Mask Image" class="mri-scan-img">
+                                            </div>
+                                        </div>
+                                        <p id="noMriMessage" style="display: none; text-align: center; color: #888;">No MRI scans available for this patient.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="modal-footer">
+                        <button class="edit-patient-btn" id="modalEditButton">
+                            <i class="fas fa-edit"></i>
+                            Edit Patient
+                        </button>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+    <!-- Add loading overlay -->
+    <div id="pageLoadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Loading patient data...</p>
+    </div>
+
+    <style>
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <!-- Base Scripts -->
+    <script>
+        // Global error handler
+        window.addEventListener('error', function(event) {
+            console.error('Global error:', event.error);
+            document.getElementById('pageLoadingOverlay').style.display = 'none';
+        });
+
+        console.log('Patient page initialized - will load data from API');
+    </script>
+
+    <!-- Load dependencies -->
+    <script src="scripts/shared/api-config.js"></script>
+    <script src="scripts/shared/auth-utils.js"></script>
+    <script src="scripts/shared/dashboard-header.js"></script>
+    <script src="scripts/dashboard/patients.js"></script>
+
+    <!-- Initialize and handle loading state -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, patient data will be loaded from API...');
+
+            // Hide loading overlay when everything is ready
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const overlay = document.getElementById('pageLoadingOverlay');
+                    if (overlay) {
+                        overlay.style.opacity = '0';
+                        setTimeout(() => {
+                            overlay.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        }, 300);
+                    }
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

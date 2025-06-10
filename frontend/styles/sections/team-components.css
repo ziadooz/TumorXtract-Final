@@ -1,0 +1,111 @@
+/**
+ * Team Components
+ * Contains styles for team member cards and their elements
+ */
+
+/* Team Member Cards */
+.team-member {
+    min-width: 280px;
+    max-width: 300px;
+    flex: 0 0 auto;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-member:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Team Member Images */
+.team-member img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto var(--space-md);
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.team-member:hover img {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Team Member Info */
+.team-member h3 {
+    font-size: var(--font-large);
+    color: var(--text-color);
+    margin-bottom: var(--space-xs);
+    font-weight: 700;
+}
+
+.team-member p {
+    color: var(--secondary-color);
+    font-size: var(--font-medium);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .team-member {
+        min-width: 260px;
+    }
+
+    .team-member img {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-member {
+        min-width: 220px;
+        padding: var(--space-md);
+    }
+
+    .team-member img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member {
+        min-width: 200px;
+        padding: var(--space-sm);
+    }
+
+    .team-member img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .team-member h3 {
+        font-size: calc(var(--font-large) * 0.9);
+    }
+
+    .team-member p {
+        font-size: var(--font-small);
+    }
+}
+
+/* High-DPI Screen Adjustments */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .team-member img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
