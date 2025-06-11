@@ -7,7 +7,7 @@ This guide provides instructions on how to set up and run the TumorXtract projec
 Before you begin, ensure you have the following installed:
 
 *   **Git**: For cloning the repository.
-*   **.NET SDK (6.0 or higher)**: The backend API is built with ASP.NET Core.
+*   **.NET SDK (6.0)**: The backend API is built with ASP.NET Core.
 *   **Python (3.8 or higher)**: The AI service is a Flask application. 
 *   **SQL Server (or SQL Server Express/LocalDB)**: The .NET backend uses SQL Server for its database.
 *   **SQL Server Management Studio (SSMS)**
